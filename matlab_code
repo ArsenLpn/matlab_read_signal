@@ -1,0 +1,29 @@
+M = csvread('name of the file',0,0)
+
+M_x = M(:,1);
+M_y = M(:,2);
+M_z = M(:,3);
+
+
+
+M_x = M_x.^2;
+M_y = M_y.^2;
+M_z = M_z.^2;
+
+M_squared = M_x + M_y + M_z;
+M_rooted = sqrt(M_squared)/9.86 ;
+x = 0:1:length(M_rooted)-1; 
+
+subplot(2,1,1); % Upper left
+plot(x,M_rooted);
+subplot(2,1, 2); % Upper right
+plot(x,M_x,'b');
+hold on;
+plot(x,M_y,'r');
+hold on;
+plot(x,M_z,'g');
+ylim([0 1])
+hold off;
+
+
+
